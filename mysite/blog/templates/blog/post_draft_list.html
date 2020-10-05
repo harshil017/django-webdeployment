@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Blog Site</title>
+</head>
+<p>These are the drafts</p>
+{% for post in posts %}
+            <p >created: {{ post.created_date|date:'d-m-Y' }}</p>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text }}</p>
+
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Blog Site</title>
+</head>
+<body>
+
+
+
+    <ul>
+
+      <li><a href="{% url 'about'%}">About this Site!</a></li>
+    </ul>
+    <ul>
+        {% if user.is_authenticated %}
+        <li>
+          <a href="{% url 'post_new' %}" >New Post</a>
+          <li><a href="{% url 'post_list' %}">The Blogs</a></li>
+        </li>
+
+        <li>
+          <a href="{% url 'post_draft_list' %}">Drafts</a>
+        </li>
+        <li>
+          <a href="{% url 'logout' %}" >Log out</a>
+        </li>
+
+        <li>
+          <a >Welcome: {{ user.username }}</a>
+        </li>
+          {% else %}
+          <li><a href="{% url 'login' %}" >Login</a></li>
+        {% endif %}
+
+      </ul>
+
+
+
+
+
+</body>
+  </html>

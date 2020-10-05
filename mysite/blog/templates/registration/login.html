@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Blog Site</title>
+</head>
+<body>
+
+<h2>Please Login: </h2>
+   <form method="POST" action="{% url 'login' %}">
+   {% csrf_token %}
+       {{form.as_p}}
+
+       <input type="submit"  value="Login" />
+       <input type="hidden" name="next" value="{{ next }}" />
+   </form>
+
+
+</body>
+</html>

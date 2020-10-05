@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% include 'blog/base.html' %}
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Blog Site</title>
+</head>
+<body>
+
+    {% for post in post_list %}
+
+
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+
+                <p>Published on: {{ post.published_date|date:"D M Y"}}</p>
+                <p>Written By: {{post.author}}</p>
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
+
+    {% endfor %}
+
+</body>
+
+</html>
